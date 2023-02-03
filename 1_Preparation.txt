@@ -1,0 +1,20 @@
+I) Cours :
+==========
+1) Supports :
+-------------
+Support Markdown :
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+Support Cours : 
+https://github.com/LondonAppDev/build-a-backend-api-python-drf-beginner-cheat-sheet/blob/master/README.md
+Liste gitignore préremplie : 
+https://gist.github.com/LondonAppDev/dd166e24f69db4404102161df02a63ff
+Licence : 
+https://choosealicense.com/licenses/mit/
+
+2) GIT 
+-------
+2.1 : git init dans le terminal
+2.2 Création du fichier README.md
+2.3 Création du fichier .gitignore
+
+
