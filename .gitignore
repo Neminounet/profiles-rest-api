@@ -2,6 +2,9 @@
 # Edit at https://www.gitignore.io/?templates=python,vagrant
 
 ### Python ###
+#Cours
+cours/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
