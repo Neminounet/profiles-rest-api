@@ -3,9 +3,12 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.viewsets import ViewSet
+from rest_framework.viewsets import ViewSet, ModelViewSet
+from rest_framework.authentication import TokenAuthentication
 
-from profiles_api.serializers import HelloSerializer
+from profiles_api.serializers import HelloSerializer, UserProfileSerializer
+from profiles_api.models import UserProfile
+from profiles_api.permissions import UpdateOwnProfile
 
 
 class HelloApiView(APIView):
@@ -96,3 +99,12 @@ class HelloViewSet(ViewSet):
     def destroy(self, request, pk=None):
         """Handle removing an object"""
         return Response({"http_method": "DELETE"})
+
+
+# viewset Projet
+class UserProfileViewSet(ModelViewSet):
+    """Handle createinf and updating profiles"""
+    serializer_class = UserProfileSerializer
+    queryset = UserProfile.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (UpdateOwnProfile,)
