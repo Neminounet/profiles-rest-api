@@ -3,8 +3,10 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.filters import SearchFilter
 from rest_framework.viewsets import ViewSet, ModelViewSet
 from rest_framework.authentication import TokenAuthentication
+
 
 from profiles_api.serializers import HelloSerializer, UserProfileSerializer
 from profiles_api.models import UserProfile
@@ -106,5 +108,7 @@ class UserProfileViewSet(ModelViewSet):
     """Handle createinf and updating profiles"""
     serializer_class = UserProfileSerializer
     queryset = UserProfile.objects.all()
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (UpdateOwnProfile,)
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (UpdateOwnProfile, )
+    filter_backends = (SearchFilter, )
+    search_fields = ('name', 'email')
